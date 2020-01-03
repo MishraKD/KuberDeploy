@@ -3,11 +3,11 @@ version: 0.2
 phases:
   build:
     commands:
-       -   sh "ssh ec2-user@52.66.70.61 kubectl apply -f ./k8s/
-       -   export KOPS_CLUSTER_NAME=devoaihbkesul export KOPS_STATE_STORE=s3://cajkkubeclksa; export AWS_REGION=us-east-2
+       -   sh "ssh git@ kubectl apply -f ./k8s/
+       -   export KOPS_CLUSTER_NAME=devopskube60.k8s.local export KOPS_STATE_STORE=s3://clusters.k8s.kubecfg60devops.vpc export AWS_REGION=eu-west-1 
        -   kops get
        -   kops export kubecfg devopskube60.k8s.local
        -   kubectl apply -f ./k8s/
   post_build:
     commands:
-       -   aws s3 cp ./k8s s3://<kops-state-bucket> --recursive --exclude "*" --include "*.yml"
+       -   aws s3 cp ./k8s s3://deployapi2 --recursive --exclude "*" --include "*.yml"
