@@ -4,6 +4,3 @@ phases:
   build:
     commands:
       - echo "hello"
-  post_build:
-    commands:
-       -   aws s3 cp ./k8s s3://deployapi2 --recursive --exclude "*" --include "*.yml"
