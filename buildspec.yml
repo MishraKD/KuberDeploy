@@ -4,6 +4,7 @@ phases:
   build:
     commands:
        -   echo "hello"
+       -   sh "ssh git@ kubectl apply -f ./k8s/
        -   export KOPS_CLUSTER_NAME=devopskube60.k8s.local export KOPS_STATE_STORE=s3://clusters.k8s.kubecfg60devops.vpc export AWS_REGION=eu-west-1 
        -   kops get
        -   kops export kubecfg devopskube60.k8s.local
